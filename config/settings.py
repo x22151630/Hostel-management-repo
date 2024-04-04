@@ -25,6 +25,11 @@ SECRET_KEY = 'django-insecure-po#x=y#vn-v77!u@h3p*2$q#4#9t7pg@)12sk$&#gjee+#lm1^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+LOGIN_REDIRECT_URL = '/'
+CSRF_TRUSTED_ORIGINS = [
+    'https://c2824789cfe542cd8597cb485a10bb7e.vfs.cloud9.eu-west-1.amazonaws.com'
+]
+
 ALLOWED_HOSTS =['*']
 
 import os
@@ -40,6 +45,8 @@ INSTALLED_APPS = [
     
     #local apps
     'HostelManagement',
+    'users',
+    
 
 ]
 
@@ -58,7 +65,7 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['Templates'],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -119,9 +126,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')

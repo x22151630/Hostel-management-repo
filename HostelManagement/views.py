@@ -5,5 +5,5 @@ from django.http import HttpResponse
 
 # Create your views here.
 def Index(request):
-    return render(request,"Index.html")
+    return render(request,"index.html")
     
